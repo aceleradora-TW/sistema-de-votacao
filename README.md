@@ -1,5 +1,7 @@
 # Sistema de Votação
 
+[![CircleCI](https://circleci.com/gh/aceleradora-TW/sistema-de-votacao/tree/master.svg?style=svg)](https://circleci.com/gh/aceleradora-TW/sistema-de-votacao/tree/master)
+
 Tentativa de automatizar o processo de recolhimento e apuração dos votos do pitch de projetos da Aceleradora.
 
 __O que isso aqui deve fazer:__
