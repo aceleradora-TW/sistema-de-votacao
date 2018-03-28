@@ -2,7 +2,6 @@
 
 Tentativa de automatizar o processo de recolhimento e apuração dos votos do pitch de projetos da Aceleradora.
 
-
 __O que isso aqui deve fazer:__
 
 - Mostrar a lista dos projetos que estão sendo apresentados;
@@ -12,3 +11,12 @@ __O que isso aqui deve fazer:__
 __O que isso aqui não deve fazer:__
 
 - Receber novos projetos
+
+
+# Tecnologia
+
+Por enquanto, Node e Vue.js. Com a intenção de manter o projeto próximo da realidade da Aceleradora.
+
+__Ambientes:__
+
+- [Staging](http://votacao-aceleradora.herokuapp.com/)
