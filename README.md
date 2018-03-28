@@ -13,9 +13,14 @@ __O que isso aqui não deve fazer:__
 - Receber novos projetos
 
 
-# Tecnologia
+# Tecnologia e processo
 
 Por enquanto, Node e Vue.js. Com a intenção de manter o projeto próximo da realidade da Aceleradora.
+
+A ideia é manter o processo bem simples e por isso, este repositório foi integrado diretamente com o Heroku e cada vez que algo novo for adicionado na `master`, ocorrerá um novo deploy para staging. 
+
+A `master` não receberá commits diretamente (pois isso implica em um novo deploy). Toda e qualquer alteração deve ser feita através de pull requests.
+
 
 __Ambientes:__
 
