@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,8 @@
   "homepage": "https://github.com/aceleradora-TW/sistema-de-votacao#readme",
   "devDependencies": {
     "jest": "^22.4.3"
+  },
+  "dependencies": {
+    "express": "^4.16.3"
   }
 }
