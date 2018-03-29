@@ -4,10 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "npm run view:build && node index.js",
     "docker:db:run": "docker run --rm --name votacao-db -d -p 27017:27017 mongo:3.4.13",
     "docker:db:console": "docker exec -it votacao-db mongo",
     "docker:db:stop": "docker stop votacao-db",
+    "dev": "NODE_ENV=development npm start",
+    "view:build": "./node_modules/.bin/webpack --verbose",
+    "heroku-postbuild": "NODE_ENV=production npm run view:build",
     "test": "jest"
   },
   "repository": {
@@ -25,7 +28,12 @@
   },
   "devDependencies": {
     "jest": "^22.4.3",
-    "nodemon": "^1.17.2"
+    "vue": "^2.5.16",
+    "vue-loader": "^14.2.2",
+    "vue-template-compiler": "^2.5.16",
+    "webpack": "^4.3.0",
+    "webpack-cli": "^2.0.13",
+    "webpack-dev-server": "^3.1.1"
   },
   "dependencies": {
     "express": "^4.16.3",
