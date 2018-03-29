@@ -10,6 +10,7 @@
     "docker:db:stop": "docker stop votacao-db",
     "dev": "NODE_ENV=development npm start",
     "view:build": "./node_modules/.bin/webpack --verbose",
+    "heroku-postbuild": "NODE_ENV=production npm run view:build",
     "test": "jest"
   },
   "repository": {
