@@ -9,9 +9,11 @@
     "docker:db:console": "docker exec -it votacao-db mongo",
     "docker:db:stop": "docker stop votacao-db",
     "dev": "NODE_ENV=development npm start",
-    "view:build": "./node_modules/.bin/webpack --verbose",
+    "view:build": "npx webpack --verbose",
     "heroku-postbuild": "NODE_ENV=production npm run view:build",
-    "test": "jest"
+    "test": "npm run test:unit && npm run test:functional",
+    "test:unit": "npx jest",
+    "test:functional": "npm run view:build && node bin/cypress-run"
   },
   "repository": {
     "type": "git",
@@ -24,9 +26,15 @@
   },
   "homepage": "https://github.com/aceleradora-TW/sistema-de-votacao#readme",
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "testRegex": ".*test.js",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/cypress/"
+    ]
   },
   "devDependencies": {
+    "cypress": "^2.1.0",
     "jest": "^22.4.3",
     "vue": "^2.5.16",
     "vue-loader": "^14.2.2",
