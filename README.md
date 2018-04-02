@@ -17,13 +17,51 @@ __O que isso aqui não deve fazer:__
 
 # Tecnologia e processo
 
-Por enquanto, Node e Vue.js. Com a intenção de manter o projeto próximo da realidade da Aceleradora.
 
-A ideia é manter o processo bem simples e por isso, este repositório foi integrado diretamente com o Heroku e cada vez que algo novo for adicionado na `master`, ocorrerá um novo deploy para staging. 
+__Tecnologia__
 
-A `master` não receberá commits diretamente (pois isso implica em um novo deploy). Toda e qualquer alteração deve ser feita através de pull requests.
+A adoção das tecnologias desde projeto tem como intenção mantê-lo mais próximo possível da realidade da Aceleradora, podendo este projeto servir como referência (assim queremos hehe) para dúvidas pontuais à respeito do ecossistema Node. 
+
+Este é um projeto muito pequeno e às vezes vai parecer que as tecnologias adotadas são excessivamente complexas para resolver este problema (o velha dilema de `esta aplicação poderia ser uma planilha no Excel`). Talvez seja verdade, mas o mais importante aqui é ter esse projeto como uma referência e um meio de aprendizado para pessoas acelerandas e mentoras.
+
+Tecnologias e plataformas adotadas:
+
+__Front-end/Single Page Application__
+
+- [Vue.js](https://vuejs.org/)
+- [Webpack](https://webpack.js.org/)
+- [Node.js](https://nodejs.org/en/)
+
+__Back-end__
+
+- [Node.js](https://nodejs.org/en/)
+- [MongoDB](https://www.mongodb.com/)
+- [Express](https://expressjs.com/)
+
+__Testes__
+
+- [Jest](https://facebook.github.io/jest/)
+- [Cypress](https://cypress.io)
+
+__Plataformas__
+
+- [Heroku](https://heroku.com)
+- [MLab](https://mlab.com/)
+
+__Integração/Entrega contínua__
+
+A ideia é manter o processo bem simples e rápido. Este repositório foi integrado diretamente com o Heroku e cada vez que algo novo for adicionado na `master`, ocorrerá um novo deploy para staging automaticamente, portanto, nosso objetivo é sempre manter a `master` verde e pronta para ir para produção.
+
+Por motivos de ordem, a `master` não receberá commits diretamente, pois isso implica em um novo deploy, e permitir deploy de toda e qualquer alteração sem uma verificação prévia não é uma boa ideia. 
+
+Toda e qualquer alteração deve ser feita através de pull requests. Cada vez que um pull request for aberto, as mudanças introduzidas no mesmo serão verificadas pela nossa bateria de testes automatizados configurados no Circle CI. Se os testes passarem, estamos autorizadas a fazer o merge dessas alterações na `master`, onde uma nova bateria de testes deve correr e, finalmente, se tudo estiver bem, o deploy para o ambiente de staging.
 
 
 __Ambientes:__
 
 - [Staging](http://votacao-aceleradora.herokuapp.com/)
+
+
+__Documentação (ágil):__
+
+Um dos princípios da filosofia ágil é a de que tenhamos como prioridade maior o software funcionando do que uma vasta documentação. Por conta disso, idealmente, a maior parte da documentação sobre as decisões tomadas neste projeto estarão presentes nas cards do [kanban](https://github.com/aceleradora-TW/sistema-de-votacao/projects/1), nas [descrições das Pull Requests](https://github.com/aceleradora-TW/sistema-de-votacao/pull/7#issuecomment-377109980), nas [mensagens de commit](https://github.com/aceleradora-TW/sistema-de-votacao/commits/master), nos casos testes e no próprio código.
