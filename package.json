@@ -38,6 +38,7 @@
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.10.0",
+    "eslint-plugin-vue": "^4.4.0",
     "jest": "^22.4.3",
     "vue": "^2.5.16",
     "vue-loader": "^14.2.2",
