@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 module.exports = {
-  connect: () => mongoose.connect('mongodb://127.0.0.1/doot'),
+  connect: () => mongoose.connect(process.env.MONGODB_URI),
 
   disconnect: () => new Promise((resolve, reject) =>
     mongoose.connection.close((error) => error
