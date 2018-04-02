@@ -23,6 +23,6 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run:
-        command: npm test
-        environment:
-          MONGODB_URI: 'mongodb://127.0.0.1/doot'
+          command: npm test
+          environment:
+            MONGODB_URI: 'mongodb://127.0.0.1/doot'
