@@ -4,8 +4,6 @@ jobs:
     docker:
       - image: cypress/base:8
       - image: mongo:3.4.13
-        environment:
-          MONGODB_URI: 'mongodb://127.0.0.1/doot'
 
     working_directory: ~/repo
 
@@ -24,4 +22,7 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run: npm test
+      - run:
+        command: npm test
+        environment:
+          MONGODB_URI: 'mongodb://127.0.0.1/doot'
