@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: cypress/base
+      - image: cypress/base:8
 
     working_directory: ~/repo
 
