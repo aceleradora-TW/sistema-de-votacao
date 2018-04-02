@@ -1,12 +1,12 @@
 const cypress = require('cypress')
-const serverManager = require('./test-server-manager')
+const server = require('./test-server')
 
-serverManager
-  .start()
-  .then((runningServer) => {
+server()
+  .then((stopServer) =>
     cypress
       .run()
-      .then(runningServer.stop)
-  })
+      .then(stopServer)
+      .catch(error => console.log(error.message))
+  )
   .catch(error => console.log(error.message))
 
