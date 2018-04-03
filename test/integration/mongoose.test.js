@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const database = require('../../src/database')
+const {databaseUri} = require('../../settings')
 
 const CONNECTED = 1
 const DISCONNECTED = 0
@@ -16,7 +17,7 @@ describe('mongoose', () => {
   }
 
   it('can create a single connection', (done) => {
-    database
+    database(databaseUri)
       .connect()
       .then(expectSuccesfulConnection)
       .then(done)
@@ -24,7 +25,7 @@ describe('mongoose', () => {
   })
 
   it('can close the previously opened connection', (done) => {
-    database
+    database(databaseUri)
       .disconnect()
       .then(expectConnectionToBeClosed)
       .then(done)

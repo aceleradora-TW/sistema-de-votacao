@@ -1,6 +1,5 @@
-const server = require('./server')
-
-const PORT = process.env.PORT || 3000
+const server = require('./src/server')
+const {port} = require('./settings')
 
 server()
-  .listen(PORT, () => console.log('Up on port', PORT))
+  .listen(port, () => console.log('Up on port', port))
