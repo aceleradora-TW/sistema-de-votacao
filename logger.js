@@ -1,8 +1,13 @@
 const morgan = require('morgan');
 const { join } = require('path');
-const fs = require('fs');
+const rfs = require('rotating-file-stream');
 
-const loggerStream = fs.createWriteStream(join(__dirname, 'logs', 'access.log'), { flags: 'a+' });
+const loggerStream = rfs('access.log', {
+  interval: '1d',
+  path: join(__dirname, 'logs'),
+});
 
 module.exports = () =>
-  morgan('combined', { stream: loggerStream });
+  morgan.use('combined', {
+    stream: loggerStream,
+  });
