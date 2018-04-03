@@ -1,2 +1,2 @@
-public/dist.js
-/node_modules
+src/public/dist.js
+node_modules/
