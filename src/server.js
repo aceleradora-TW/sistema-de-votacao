@@ -1,6 +1,8 @@
 const express = require('express')
-const {join} = require('path')
+const { join } = require('path')
+const logger = require('./logger')
 
 module.exports = () =>
   express()
-    .use(express.static(join(__dirname, 'public')))
+    .use(logger)
+    .use(express.static(join(__dirname, "public")));
