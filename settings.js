@@ -4,5 +4,5 @@ const databaseUri = process.env.MONGODB_URI || 'mongodb://localhost/votacao_acel
 
 module.exports = {
   port,
-  databaseUri
+  databaseUri,
 }

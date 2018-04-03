@@ -1,5 +1,6 @@
 const server = require('./src/server')
 const { port } = require('./settings')
+const { logger } = require('./src/logger')
 
 server()
-  .listen(port, () => console.log('Up on port', port))
+  .listen(port, () => logger.info('Up on port', port))

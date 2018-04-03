@@ -1,8 +1,8 @@
 const express = require('express')
 const { join } = require('path')
-const logger = require('./logger')
+const { winstonMiddleware } = require("./logger");
 
 module.exports = () =>
   express()
-    .use(logger)
+    .use(winstonMiddleware)
     .use(express.static(join(__dirname, "public")));
