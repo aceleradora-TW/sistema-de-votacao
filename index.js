@@ -1,8 +1,11 @@
-const express = require('express')
-const path = require('path')
-const server = require('./server')
+const express = require('express');
+const server = require('./server');
+const logger = require('./logger');
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || (3000);
+
+express()
+  .use(logger);
 
 server()
-  .listen(PORT, () => console.log('Up on port', PORT))
+  .listen(PORT, () => console.log('Up on port', PORT));
