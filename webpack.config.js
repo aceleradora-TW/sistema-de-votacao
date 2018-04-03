@@ -1,14 +1,13 @@
 const {join} = require('path')
-const webpack = require('webpack')
 
-const CODE_PATH = join(__dirname, 'src', 'view')
+const path = (...arguments) => join(__dirname, 'src', ...arguments)
 
 const ENVIRONMENT = process.env.NODE_ENV || 'production'
 
 module.exports = {
 
     entry: {
-      main: join(CODE_PATH, 'index.js')
+      main: path('view', 'index.js')
     },
 
     mode: ENVIRONMENT,
@@ -20,7 +19,7 @@ module.exports = {
     },
 
     output: {
-      path: join(__dirname, 'public'),
+      path: path('public'),
       filename: 'dist.js'
     },
 }

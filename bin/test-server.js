@@ -1,4 +1,4 @@
-const regularServer = require('../server')
+const regularServer = require('../src/server')
 
 const stop = (server) => () => {
   server.close()
