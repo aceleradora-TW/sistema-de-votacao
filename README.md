@@ -14,6 +14,30 @@ __O que isso aqui não deve fazer:__
 
 - Receber novos projetos
 
+# Executando o projeto
+
+Idealmente, o `package.json` pode servir como guia do projeto.
+
+Para executar todos os testes:
+
+```
+npm test
+```
+
+Para executar a aplicação em modo desenvolvimento:
+
+```
+npm run dev
+```
+
+No modo desenvolvimento é possível utilizar o [Vue Dev Tools](https://github.com/vuejs/vue-devtools)
+
+Para executar a aplicação em modo produção:
+
+```
+npm start
+```
+
 
 # Tecnologia e processo
 
