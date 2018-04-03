@@ -23,7 +23,7 @@ describe('mongoose', () => {
       .catch(done)
   })
 
-  it('can close close the previously opened connection', (done) => {
+  it('can close the previously opened connection', (done) => {
     database
       .disconnect()
       .then(expectConnectionToBeClosed)
