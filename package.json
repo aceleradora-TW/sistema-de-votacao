@@ -27,6 +27,10 @@
   },
   "homepage": "https://github.com/aceleradora-TW/sistema-de-votacao#readme",
   "jest": {
+    "modulePaths": [
+      "<rootDir>/src",
+      "<rootDir>/test"
+    ],
     "testEnvironment": "node",
     "testRegex": ".*test.js",
     "testPathIgnorePatterns": [
