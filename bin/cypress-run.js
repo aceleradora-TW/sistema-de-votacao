@@ -3,11 +3,9 @@ const server = require('./test-server')
 const { logger } = require('./../src/logger')
 
 server()
-  .then((stopServer) =>
+  .then(stopServer =>
     cypress
       .run()
       .then(stopServer)
-      .catch(logger.error)
-  )
+      .catch(logger.error))
   .catch(logger.error)
-
