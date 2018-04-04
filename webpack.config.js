@@ -1,25 +1,25 @@
-const {join} = require('path')
+const { join } = require('path')
 
-const path = (...arguments) => join(__dirname, 'src', ...arguments)
+const path = (...pathParts) => join(__dirname, 'src', ...pathParts)
 
 const ENVIRONMENT = process.env.NODE_ENV || 'production'
 
 module.exports = {
 
-    entry: {
-      main: path('view', 'index.js')
-    },
+  entry: {
+    main: path('view', 'index.js'),
+  },
 
-    mode: ENVIRONMENT,
+  mode: ENVIRONMENT,
 
-    module: {
-      rules: [
-        {test: /\.vue$/, loader: 'vue-loader'}
-      ]
-    },
+  module: {
+    rules: [
+      { test: /\.vue$/, loader: 'vue-loader' },
+    ],
+  },
 
-    output: {
-      path: path('public'),
-      filename: 'dist.js'
-    },
+  output: {
+    path: path('public'),
+    filename: 'dist.js',
+  },
 }
