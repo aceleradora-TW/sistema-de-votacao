@@ -7,7 +7,7 @@ server()
     cypress
       .run()
       .then(stopServer)
-      .catch(error => logger.info(error.message))
+      .catch(logger.error)
   )
-  .catch(error => logger.info(error.message))
+  .catch(logger.error)
 
