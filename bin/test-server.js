@@ -8,7 +8,7 @@ const stop = (server) => () => {
 
 const start = () => new Promise((resolve, reject) => {
   const server = regularServer().listen(3000, () => {
-    logger.info("Test server started at ", 3000)
+    logger.info('Test server started at ', 3000)
 
     return resolve(stop(server))
   })
