@@ -1,9 +1,15 @@
 {
     "extends": "airbnb-base",
     "plugins": [
-        "vue"
+        "vue",
+        "jest",
+        "cypress"
     ],
     "rules": {
         "semi": ["error", "never"]
+    },
+    "env": {
+        "jest/globals": true,
+        "cypress/globals": true
     }
 }
