@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unresolved
 const Project = require('models/project')
 
 describe('A project model', () => {
