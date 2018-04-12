@@ -7,17 +7,17 @@ const mockingoose = require('mockingoose').default
 
 describe('Get list of projects', () => {
   describe('when things goes right', () => {
-    it('should call response.send with projects as json', async () => {
+    it('should call response.send with projects as json', () => {
       const request = {}
       const response = { send: jest.fn() }
       const projects = [{ name: 'Batatinha 1' }]
-
+      const projectNames = responseCall => responseCall.map(proj => proj.name)
 
       mockingoose.Project.toReturn(projects, 'find')
-      listRoute(Project)(request, response).then(() => {
+      return listRoute(Project)(request, response).then(() => {
         expect(response.send.mock.calls.length).toBe(1)
-        expect(response.send.mock.calls[0][0].map(project => project.name)).toEqual(JSON.stringify(projects))
-      })
+        expect(projectNames(response.send.mock.calls[0][0])).toEqual(JSON.stringify(projects))
+      }).catch(() => {})
     })
   })
 })
