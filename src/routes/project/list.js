@@ -1,6 +1,6 @@
 const { logger } = require('./../../logger')
 
-module.exports = project => (req, res) => {
+module.exports = project => (req, res) =>
   project.find({})
     .exec()
     .then(projects => {
@@ -9,4 +9,3 @@ module.exports = project => (req, res) => {
       logger.error(err)
       res.status(500).send(err)
     })
-}
