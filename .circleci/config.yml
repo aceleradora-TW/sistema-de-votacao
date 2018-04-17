@@ -23,7 +23,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run:
-        command: npm run db:seed
+        command: 'npm run db:seed'
           environment:
             MONGODB_URI: 'mongodb://127.0.0.1/votacao_aceleradora'
 
