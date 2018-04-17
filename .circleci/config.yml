@@ -41,7 +41,7 @@ jobs:
 
         - run:
             command: |
-              git push heroku sequential-branch-filter:master
+              git push heroku master
               sleep 5
               heroku restart
 
@@ -55,4 +55,4 @@ workflows:
             - build
           filters:
             branches:
-              only: sequential-branch-filter
+              only: master
