@@ -8,6 +8,7 @@
     "docker:db:run": "docker run --rm --name votacao-db -d -p 27017:27017 mongo:3.4.13",
     "docker:db:console": "docker exec -it votacao-db mongo",
     "docker:db:stop": "docker stop votacao-db",
+    "db:seed": "node bin/db-seed.js",
     "dev": "NODE_ENV=development npm start",
     "view:build": "npx webpack --verbose",
     "heroku-postbuild": "NODE_ENV=production npm run view:build",
