@@ -1,19 +1,32 @@
 // eslint-disable-next-line import/no-unresolved
-const errorHandler = require('routes/error-handler')
+const errorHandlerCreator = require('routes/error-handler')
 
 describe('Error handler', () => {
-  const logger = { error: jest.fn() }
-  const err = new Error('fooMessage')
-  const response = { send: jest.fn(), status: jest.fn().mockReturnThis() }
+  let logger
+  let error
+  let response
+  let request
 
-  test('should log the error and send 500 with the error message', () => {
-    errorHandler(logger)(err, {}, response, jest.fn)
+  beforeEach(() => {
+    logger = { error: jest.fn() }
+    error = new Error('fooMessage')
+    response = { json: jest.fn(), status: jest.fn().mockReturnThis() }
+    request = {}
 
-    expect(logger.error.mock.calls.length).toBe(1)
-    expect(logger.error.mock.calls[0][0]).toBe(err)
-    expect(response.send.mock.calls.length).toBe(1)
-    expect(response.send.mock.calls[0][0]).toBe(err.message)
-    expect(response.status.mock.calls.length).toBe(1)
-    expect(response.status.mock.calls[0][0]).toBe(500)
+    const errorHandler = errorHandlerCreator(logger)
+
+    errorHandler(error, request, response)
+  })
+
+  it('logs the error object', () => {
+    expect(logger.error).toBeCalledWith(error)
+  })
+
+  it('responds with status 500', () => {
+    expect(response.status).toBeCalledWith(500)
+  })
+
+  it('responds with the error message in the response body', () => {
+    expect(response.json).toBeCalledWith({ error: error.message })
   })
 })

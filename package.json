@@ -14,6 +14,7 @@
     "test": "npm run lint && npm run test:integration && npm run test:functional",
     "test:integration": "npx jest",
     "test:functional": "npm run view:build && node bin/cypress-run",
+    "test:unit": "npx jest test/unit",
     "lint": "npx eslint ."
   },
   "repository": {
