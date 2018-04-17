@@ -25,4 +25,4 @@ jobs:
       - run:
           command: npm test
           environment:
-            MONGODB_URI: 'mongodb://127.0.0.1/doot'
+            MONGODB_URI: 'mongodb://127.0.0.1/votacao_aceleradora'
