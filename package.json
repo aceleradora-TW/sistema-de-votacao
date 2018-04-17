@@ -14,6 +14,7 @@
     "test": "npm run lint && npm run test:integration && npm run test:functional",
     "test:integration": "npx jest",
     "test:functional": "npm run view:build && node bin/cypress-run",
+    "test:unit": "npx jest test/unit",
     "lint": "npx eslint ."
   },
   "repository": {
@@ -27,6 +28,10 @@
   },
   "homepage": "https://github.com/aceleradora-TW/sistema-de-votacao#readme",
   "jest": {
+    "modulePaths": [
+      "<rootDir>/src",
+      "<rootDir>/test"
+    ],
     "testEnvironment": "node",
     "testRegex": ".*test.js",
     "testPathIgnorePatterns": [
@@ -45,6 +50,7 @@
     "jest": "^22.4.3",
     "vue": "^2.5.16",
     "vue-loader": "^14.2.2",
+    "vue-resource": "^1.5.0",
     "vue-template-compiler": "^2.5.16",
     "webpack": "^4.3.0",
     "webpack-cli": "^2.0.13",
