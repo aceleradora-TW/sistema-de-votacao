@@ -26,3 +26,33 @@ jobs:
           command: npm test
           environment:
             MONGODB_URI: 'mongodb://127.0.0.1/votacao_aceleradora'
+
+  deploy:
+      machine:
+          enabled: true
+      working_directory: ~/circleci-demo-workflows
+      environment:
+        HEROKU_APP: "votacao-aceleradora"
+      steps:
+        - checkout
+        - run:
+            name: Setup Heroku
+            command: bash .circleci/heroku-setup.sh
+
+        - run:
+            command: |
+              git push heroku sequential-branch-filter:master
+              sleep 5
+              heroku restart
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: sequential-branch-filter
