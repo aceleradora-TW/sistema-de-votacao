@@ -40,7 +40,7 @@ jobs:
           command: bash .circleci/heroku-setup.sh
 
       - run:
-          name: "Deploy master to Heroku"
+          name: Deploy master to Heroku
           command: |
             heroku git:remote -a votacao-aceleradora
             git push --force git@heroku.com:votacao-aceleradora.git HEAD:refs/heads/master
