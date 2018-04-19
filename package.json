@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engine": {
+    "node": "9.11.1",
+    "npm": "5.6.0"
+  },
   "scripts": {
     "start": "node index.js",
     "docker:db:run": "docker run --rm --name votacao-db -d -p 27017:27017 mongo:3.4.13",
@@ -61,6 +65,7 @@
     "express": "^4.16.3",
     "express-winston": "^2.5.0",
     "mongoose": "^5.0.12",
+    "npm": "^5.8.0",
     "winston": "^2.4.1"
   }
 }
