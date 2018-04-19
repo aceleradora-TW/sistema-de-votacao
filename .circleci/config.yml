@@ -26,27 +26,25 @@ jobs:
           command: npm test
           environment:
             MONGODB_URI: 'mongodb://127.0.0.1/votacao_aceleradora'
-
   deploy:
-      machine:
-          enabled: true
-      working_directory: ~/circleci-demo-workflows
-      environment:
-        HEROKU_APP_NAME: "votacao-aceleradora"
-      steps:
-        - checkout
-        - add_ssh_keys:
+    machine:
+      enabled: true
+    working_directory: ~/circleci-demo-workflows
+    steps:
+      - checkout
+      - add_ssh_keys:
           fingerprints:
             - "bXvY1BpUcRjl5JOmQOMXNTUHQxy3Pz6CgsDVSSnwlzI"
-        - run:
-            name: Setup Heroku
-            command: bash .circleci/heroku-setup.sh
+      - run:
+          name: Setup Heroku
+          command: bash .circleci/heroku-setup.sh
 
-        - run:
-            command: |
-              heroku git:remote -a $HEROKU_APP_NAME
-              git push --force git@heroku.com:$HEROKU_APP_NAME.git HEAD:refs/heads/master
-              heroku restart
+      - run:
+          name: "Deploy master to Heroku"
+          command: |
+            heroku git:remote -a votacao-aceleradora
+            git push --force git@heroku.com:votacao-aceleradora.git HEAD:refs/heads/master
+            heroku restart
 
 workflows:
   version: 2
