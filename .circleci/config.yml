@@ -32,17 +32,20 @@ jobs:
           enabled: true
       working_directory: ~/circleci-demo-workflows
       environment:
-        HEROKU_APP: "votacao-aceleradora"
+        HEROKU_APP_NAME: "votacao-aceleradora"
       steps:
         - checkout
+        - add_ssh_keys:
+          fingerprints:
+            - "bXvY1BpUcRjl5JOmQOMXNTUHQxy3Pz6CgsDVSSnwlzI"
         - run:
             name: Setup Heroku
             command: bash .circleci/heroku-setup.sh
 
         - run:
             command: |
-              git push heroku master
-              sleep 5
+              heroku git:remote -a $HEROKU_APP_NAME
+              git push --force git@heroku.com:$HEROKU_APP_NAME.git HEAD:refs/heads/master
               heroku restart
 
 workflows:
